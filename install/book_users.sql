@@ -13,5 +13,6 @@ CREATE TABLE book_users(
 			adr_state VARCHAR(30),
 			adr_coun VARCHAR(30),
 			nobs int,
+			logged_in int default 0,
 			primary key(sno)
 			);
