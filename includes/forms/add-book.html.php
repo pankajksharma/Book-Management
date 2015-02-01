@@ -27,10 +27,10 @@
                 require('./includes/incl_user.php');
                 $read_types="select * from book_types";
                 $result1=mysqli_query($con,$read_types);
-                if(!$result1)
-                echo("EXIT");
+                if($result1){
                 while($row=mysqli_fetch_array($result1))
                   echo('<option value="'.$row['type_id'].'">'.$row['book_type'].'</option>');
+		}
               ?>
            </select>
             <br />

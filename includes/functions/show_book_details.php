@@ -15,7 +15,8 @@
      if($row['ind_pic']==NULL)
       echo("<img src=\"./img/default-book-big.png\" alt=\"".$row['bookname']."\" />");
       else
-      {  //To be added soon
+      {  
+      	echo("<img src=\"".$row['ind_pic']."\" alt=\"".$row['bookname']."\" />");
       }
      echo("<h3><font color=RED>Author(s) Name: </font>".$row['authorsname']."</h3>\n");
      echo("<h3><font color=RED>Edition Number: </font><font color=GREEN>".$row['edition']."</font></h3>\n");
@@ -43,7 +44,8 @@
        {  //checking sold or not sold book
           $sql123 = "SELECT `sold` FROM `book_invoice` WHERE `bookid`=$bid;";
           $result1234=mysqli_query($con,$sql123);
-          $row1=mysqli_fetch_array($result1234);
+	  if ($result1234){
+             $row1=mysqli_fetch_array($result1234);
              if($row1['sold']!=sold)
              {
                    echo "<a href=\"confirm.php?bid=".$bid."\"><img src=\"./img/get-it-now.png\" /></a><br />";
@@ -52,6 +54,7 @@
             {
                   echo("<h2><font color=GREEN>Book availiblity: </font><font color=red>Sold </font></center><h2>");
             } 
+	  }
   	}
   	else
   		echo "<a href=\"login.php?login\"><img src=\"./img/get-it-now.png\" /></a><br />";

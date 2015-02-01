@@ -3,8 +3,10 @@
   $count=0;
   $sql="select book_id from book_books";
   $result=mysqli_query($con,$sql);
+  if ($result){
   while(mysqli_fetch_array($result))
     $count++;
+  }
   $no_pages=ceil($count/12);
   if((!isset($_GET['id']))||($_GET['id']>$no_pages)||($_GET['id']==NULL)||($_GET['id']==1))
   {

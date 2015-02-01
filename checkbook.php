@@ -42,36 +42,35 @@
       else
       {
      //file upload 
-  /* 
-  $filename=$_FILES["file"]["name"];*/
+
+  $filename=$_FILES["file"]["name"];
  // echo "Upload: " . $_FILES["file"]["name"] . "<br />";
   //echo "Type: " . $_FILES["file"]["type"] . "<br />";
   //echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
   //echo "Stored in: " . $_FILES["file"]["tmp_name"];
-  //$ext=end(explode('.',$filename));
- /* if($ext=='jpg'||$ext=='jpg'||$ext=='jpg'||$ext=='jpg')
-  {*/
- //  $filename=time().$filename;
- //  $savepath='/upload/'.$filename;
+  $ext=end(explode('.',$filename));
+ if($ext=='jpg'||$ext=='png'||$ext=='gif'||$ext=='bmp')
+  {
+   $filename=time().'_'.$filename;
+   $savepath='/upload/'.$filename;
   // echo $savepath;
-  // $isupload=move_uploaded_file($_FILES["file"]["tmp_name"],"./includes/forms/upload/".$filename) or die("Failed to upload file");
-   //echo "<hr>";
-   // $savepath="./includes/forms/upload/".$filename. "<hr>";
-  /*  echo $savepath;
+   $isupload=move_uploaded_file($_FILES["file"]["tmp_name"],"./includes/forms/upload/".$filename) or die("Failed to upload file");
+   $savepath="./includes/forms/upload/".$filename;
+   /*
+   echo $savepath;
    echo $isupload;
    if($isupload)
    {$msg='image uploaded';}
    else
    {$mgs='some error';}
-   
-   } */
+   */
+   }
     //end upload
   
         require_once('./includes/incl_user.php');
         $sql="insert into book_books(username,bookname,authorsname,edition,cond,price,type_id,subject,rec_year,ind_pic)
         values('$username','$bookname','$authorsname',$edition,'$condition','$price',$field,'$subject','$rec_year','$savepath')";
         //image
-       
         
         $result=mysqli_query($con,$sql);
           if(!$result)
