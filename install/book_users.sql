@@ -1,5 +1,6 @@
 CREATE TABLE book_users(
 			sno smallint AUTO_INCREMENT,
+			user_type int default 0,
 			username VARCHAR(15),
 			firstname VARCHAR(25),
 			lastname VARCHAR(25),
