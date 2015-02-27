@@ -24,7 +24,7 @@
      $tid=$row['type_id'];
      $sql2="select book_type from book_types where type_id=$tid";
      $result2=mysqli_query($con,$sql2);
-     if(!result2)
+     if(!$result2)
       echo("Unknown</h2>\n");
     else
       {
