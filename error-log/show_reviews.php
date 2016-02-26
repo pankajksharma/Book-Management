@@ -74,7 +74,10 @@
 
     else
     {
+      if (isset($_GET['bid']))
+      {
       $bid=$_GET['bid'];
       show_reviews($bid);
+      }
     }
 ?>

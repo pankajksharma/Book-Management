@@ -28,8 +28,9 @@
       {
           $sql="select book_id from book_books where bookname like '%$key%' order by book_id desc";
           $result=mysqli_query($GLOBALS['con'],$sql);
+          $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids[]=$row['book_id'];
+            $book_ids=$row['book_id'];
             display_books($book_ids);
       }
       
@@ -37,8 +38,9 @@
       {
           $sql="select book_id from book_books where authorsname like '%$key%'order by book_id desc";
           $result=mysqli_query($GLOBALS['con'],$sql);
+          $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids[]=$row['book_id'];
+            $book_ids=$row['book_id'];
             display_books($book_ids);
       }
       
@@ -46,8 +48,9 @@
       {
           $sql="select book_id from book_books where subject like '%$key%' order by book_id desc";
           $result=mysqli_query($GLOBALS['con'],$sql);
+          $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids[]=$row['book_id'];
+            $book_ids=$row['book_id'];
           display_books($book_ids);
       }
       
@@ -55,8 +58,9 @@
       {
           $sql="select book_id from book_books where username like '%$key%' order by book_id desc";
           $result=mysqli_query($GLOBALS['con'],$sql);
+          $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids[]=$row['book_id'];
+            $book_ids=$row['book_id'];
           display_books($book_ids);
       }
       
@@ -64,8 +68,9 @@
       {
           $sql="select book_id from book_books where type_id=$key order by book_id desc";
           $result=mysqli_query($GLOBALS['con'],$sql);
+          $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids[]=$row['book_id'];
+            $book_ids=$row['book_id'];
           display_books($book_ids);
       }
       
@@ -106,8 +111,9 @@
           }
           $sql="select book_id from book_books where price>=$min and price<=$max order by book_id desc";
           $result=mysqli_query($GLOBALS['con'],$sql);
+          $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids[]=$row['book_id'];
+            $book_ids=$row['book_id'];
           display_books($book_ids);
       }
 

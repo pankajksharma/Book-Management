@@ -4,7 +4,7 @@
 			<a href="index.php"><img class="logo" src="img/logo.jpg" /></a>
 			<div class="header_re_form">
         <?php
-        if(!isset($_SESSION['loggedIn']) || !$_SESSION['loggedIn'])
+        if(!isset($_SESSION['loggedIn']))
         {
         ?>
   				<span>Please Login:</span>

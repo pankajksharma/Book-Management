@@ -1,5 +1,6 @@
 <?php
   session_start();
+  if (!isset($_GET['bid'])) exit(0);
   $bid=$_GET['bid'];
   require_once('./includes/incl_user.php');
   $sql="select * from book_invoice where bookid=$bid";

@@ -7,15 +7,17 @@
             require_once('./includes/functions/display_book.php');
             $sql="select book_id from book_books order by book_id desc";
             $result=mysqli_query($con,$sql);
+            $book_ids=array();
             while($row=mysqli_fetch_array($result))
-              $book_ids[]=$row['book_id'];
-            display_book($book_ids[0]);
+              $book_ids=$row['book_id'];
+            if (count($book_ids)>0)
+              display_book($book_ids[0]);
 				  ?>
 				</div>
 			</div>
 		<div class="sidebar_re">
     <?php
-        if(!$_SESSION['loggedIn'])
+        if(!isset($_SESSION['loggedIn']))
         {
       ?>
 				<div class="head_sidebar">
@@ -30,7 +32,10 @@
             {
            ?>
               <div class="head_sidebar">
-                <?php echo("HELLO ".strtoupper($_SESSION['user'])); ?>
+                <?php
+                    if (isset($_SESSION['user']))
+                      echo("HELLO ".strtoupper($_SESSION['user'])); 
+                ?>
 		    		  </div>
       				<div class="body">
            <?php

@@ -32,7 +32,7 @@ function show_form()
 ?>
 <form action="?check" method=POST>
 <?php
-  if(!$_SESSION['loggedIn'])
+  if(!isset($_SESSION['loggedIn']))
   {
 ?>
   Your Name:<input type="text" name="name" id="sender_name" size="30" /> <br />

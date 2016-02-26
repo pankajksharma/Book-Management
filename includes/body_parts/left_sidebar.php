@@ -13,7 +13,7 @@
 				<div class="body">
           <form action="search.php" method=POST>
             Search By:
-              <select name="search_type" id="search_type">
+              <select name="search_type" id="search_type1">
                 <option value="1">Book Name</option>
                 <option vlaue="2">Author Name</option>
                 <option vlaue="3">Subject wise</option>
@@ -33,7 +33,7 @@
           <form action="search.php" method=POST>
              <input type="hidden" name="search_type" value="5" id="search_by_category" />
               Choose category:
-              <select name="keyword" id="search_type">
+              <select name="keyword" id="search_type2">
                 <?php
                   require_once('./includes/incl_user.php');
                   $sql="select * from book_types";
@@ -58,7 +58,7 @@
 				<div class="body">
           <form action="search.php" method=POST>
             Select Range:<br />
-              <select name="keyword" size="5" id="search_type">
+              <select name="keyword" size="5" id="search_type3">
                 <option value="0"> Free Books</option>
                 <option value="1"> Rs.1 to Rs.50</option>
                 <option value="2"> Rs.50 to Rs.100</option>

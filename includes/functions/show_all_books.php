@@ -15,11 +15,11 @@
 $count=1;
 $sql="select * from book_books";
   $result=mysqli_query($con,$sql);
-  while($row=mysqli_fetch_array($result))
-   
-    $book_ids[]=$row['book_id'];
-    foreach($book_ids as $book_id)
-    {
+  $book_ids=array();
+  while($row=mysqli_fetch_array($result))   
+    $book_ids=$row['book_id'];
+  foreach($book_ids as $book_id)
+  {
   echo("<table>");
   
   

@@ -1,6 +1,7 @@
 <?php
   require_once('./includes/incl_user.php');
   require_once('./includes/functions/add_review.php');
+  if (!isset($_REQUEST['bid'])) exit(0);
   $bid=$_REQUEST['bid'];
   $sql="select * from book_books where book_id=$bid";
   $result=mysqli_query($con,$sql);

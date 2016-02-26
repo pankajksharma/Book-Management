@@ -1,6 +1,6 @@
 <?php
   require_once('./includes/forms/login_form.php');
-  if(!$_SESSION['loggedIn'])
+  if(!isset($_SESSION['loggedIn']))
     {
       echo("<center>You are not Authorised to see this page...<br />Please Login to continue...<br/></center>");
       show_login_form();

@@ -23,7 +23,7 @@
         echo("<center><b>No such Books Found..Probably No Books are submitted by User recently..</b></center>");
       }
       
-  if(!$_SESSION['loggedIn'])
+  if(!isset($_SESSION['loggedIn']))
   {
     echo("<center>You are Not authorised to see the User Details..<br />Please login to continue...</center>");
     require_once('./includes/forms/login_form.php');
@@ -55,8 +55,9 @@
           {}
         else
         {
-              while($row2=mysqli_fetch_array($result2))
-                $book_ids[]=$row2['book_id'];
+            $book_ids=array();
+            while($row2=mysqli_fetch_array($result2))
+                $book_ids=$row2['book_id'];
             display_books($book_ids);
         }
       }

@@ -4,8 +4,9 @@
   
   require('./includes/incl_user.php');
   require('./includes/functions/display_book.php');
-  $bd=$_REQUEST['bid'];
-  if($bd="12")
+  if (!isset($_REQUEST['bid'])) exit(0);
+  $bid=$_REQUEST['bid'];
+  if($bid="12")
   {
   echo"<center>";
   echo"<h1>Book you were looking has been already sold</h1>";
@@ -15,8 +16,9 @@
   else{
   $sql="select book_id from book_books order by book_id desc limit 0,12";
   $result=mysqli_query($con,$sql);
+  $book_ids=array();
   while($row=mysqli_fetch_array($result))
-    $book_ids[]=$row['book_id'];
+    $book_ids=$row['book_id'];
   echo("<table>");
   $count=1;
   foreach($book_ids as $book_id)

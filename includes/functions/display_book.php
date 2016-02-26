@@ -1,6 +1,8 @@
 <?php
 
     require_once('includes/incl_user.php');
+    
+    if (isset($_REQUEST['bid']))
       $bid=$_REQUEST['bid'];
 
   function display_book($bid)
