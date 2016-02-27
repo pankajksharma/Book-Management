@@ -14,6 +14,8 @@ CREATE TABLE book_users(
 			adr_state VARCHAR(30),
 			adr_coun VARCHAR(30),
 			nobs int,
+			joined_on datetime default CURRENT_TIMESTAMP ,
 			logged_in int default 0,
 			primary key(sno)
 			);
+INSERT INTO book_users(sno,user_type,username,firstname,lastname,pwd,email_id) VALUES(1,1,'admin','admin','admin',123456,'admin@example.com');
