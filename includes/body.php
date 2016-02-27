@@ -57,17 +57,17 @@
 	<div class="content_re">
 		<div class="content_left">
       <?php
-        require_once('./includes/body_parts/left_sidebar.php');      //left Sidebar
+        require_once(WEB_ROOT.'/includes/body_parts/left_sidebar.php');      //left Sidebar
       ?>
 		</div>
 		<div class="content_center">
       <?php
-        require('./includes/body_parts/main_content.php');     //main content
+        require(WEB_ROOT.'/includes/body_parts/main_content.php');     //main content
       ?>
 		</div>
 		<div class="content_right">
       <?php
-    		require_once('./includes/body_parts/right_sidebar.php');      //right Sidebar
+    		require_once(WEB_ROOT.'/includes/body_parts/right_sidebar.php');      //right Sidebar
     	?>
     </div>
 	</div>
@@ -75,7 +75,7 @@
 	<div class="footer">
   <div class="footer_re">
   <?php
-      require_once('./includes/body_parts/footer.php');
+      require_once(WEB_ROOT.'/includes/body_parts/footer.php');
   ?>
     </div>
 	</div>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('./includes/incl_user.php');
 ?>
 
 <?php

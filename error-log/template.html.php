@@ -1,4 +1,4 @@
 <?php
-	require('./includes/head.php');
-	require('./includes/body.php');
+	require('./head.php');
+	require('./body.php');
 ?>

@@ -70,6 +70,7 @@
     	?>
     </div>
 	</div>
+	<div class="clear"></div>
 	<div class="footer">
 		Hello world explaination
 	</div>

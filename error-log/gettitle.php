@@ -1,7 +1,7 @@
 <?php
-  if($meta=="enlargebook")
+  if(isset($meta) && $meta=="enlargebook")
   {
-    require_once('./includes/incl_user.php');
+    require_once('../includes/incl_user.php');
     $sql0="select * from book_books where book_id=$bid";
     $result=mysqli_query($con,$sql0);
     if(!$result)
