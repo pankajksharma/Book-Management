@@ -30,7 +30,7 @@
           $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
             display_books($book_ids);
       }
       
@@ -40,7 +40,7 @@
           $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
             display_books($book_ids);
       }
       
@@ -50,7 +50,7 @@
           $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
           display_books($book_ids);
       }
       
@@ -60,7 +60,7 @@
           $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
           display_books($book_ids);
       }
       
@@ -70,7 +70,7 @@
           $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
           display_books($book_ids);
       }
       
@@ -113,7 +113,7 @@
           $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
           display_books($book_ids);
       }
 

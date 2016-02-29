@@ -14,6 +14,7 @@
             if($count%3==1)
               echo("<tr>");
             echo("<td>");
+            if ($i>=count($book_ids)) break;
             if($book_ids[$i]!=NULL)
             display_book($book_ids[$i]);
             echo("</td>");
@@ -36,7 +37,7 @@
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
             $count++;
           }
             display_books($book_ids);
@@ -52,7 +53,7 @@
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
             $count++;
           }
             display_books($book_ids);
@@ -68,7 +69,7 @@
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
             $count++;
           }
             display_books($book_ids);
@@ -84,7 +85,7 @@
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
             $count++;
           }
             display_books($book_ids);
@@ -100,7 +101,7 @@
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
             $count++;
           }
             display_books($book_ids);
@@ -149,7 +150,7 @@
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
-            $book_ids=$row['book_id'];
+            $book_ids[]=$row['book_id'];
             $count++;
           }
             display_books($book_ids);

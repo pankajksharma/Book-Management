@@ -1,6 +1,8 @@
 <?php
+    require_once('./includes/incl_user.php');
+
       session_start();
-     
+      if(!isset($_SESSION['user'])) exit(0);
       $username=$_SESSION['user'];
 			$bookname=$_POST['bookname'];
 			$authorsname=$_POST['authorsname'];
@@ -48,14 +50,16 @@
   //echo "Type: " . $_FILES["file"]["type"] . "<br />";
   //echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
   //echo "Stored in: " . $_FILES["file"]["tmp_name"];
-  $ext=end(explode('.',$filename));
- if($ext=='jpg'||$ext=='png'||$ext=='gif'||$ext=='bmp')
+  if (!empty($filename))
   {
-   $filename=time().'_'.$filename;
-   $savepath='/upload/'.$filename;
+  $filename_parts=explode('.',$filename);
+  $ext=end($filename_parts);
+  if($ext=='jpg'||$ext=='png'||$ext=='gif'||$ext=='bmp')
+  {
+   $filename=time().'_'.substr(md5($filename),0,8);
+   $savepath=UPLOAD_DIR.'/'.$filename;
   // echo $savepath;
-   $isupload=move_uploaded_file($_FILES["file"]["tmp_name"],"./includes/forms/upload/".$filename) or die("Failed to upload file");
-   $savepath="./includes/forms/upload/".$filename;
+   $isupload=move_uploaded_file($_FILES["file"]["tmp_name"],$savepath) or die("Failed to upload file");
    /*
    echo $savepath;
    echo $isupload;
@@ -65,9 +69,13 @@
    {$mgs='some error';}
    */
    }
+   }
+   else
+   {
+    $savepath=NULL;
+   }
     //end upload
   
-        require_once('./includes/incl_user.php');
         $sql="insert into book_books(username,bookname,authorsname,edition,cond,price,type_id,subject,rec_year,ind_pic)
         values('$username','$bookname','$authorsname',$edition,'$condition','$price',$field,'$subject','$rec_year','$savepath')";
         //image

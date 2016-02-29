@@ -1,5 +1,6 @@
 CREATE TABLE book_books(
 			book_id int not null auto_increment,
+			sell_date datetime default CURRENT_TIMESTAMP,
 			username varchar(30) not null,
 			bookname varchar(30) not null,
 			authorsname varchar(30),

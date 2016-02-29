@@ -1,6 +1,7 @@
 <?php
 
 define('WEB_ROOT',__DIR__);
+define('UPLOAD_DIR','upload');
 
 define('SQL_HOST','localhost');
 define('SQL_USER','test');

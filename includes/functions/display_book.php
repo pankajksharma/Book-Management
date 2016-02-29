@@ -16,9 +16,9 @@
     
       echo("<center><a href=\"enlarge.php?bid=".$row['book_id']."\">".$row['bookname']);
       if($row['ind_pic']==NULL)
-       echo("<br /><img src=\"./img/default-book.png\" alt=\"".$row['bookname']."\" /><br />");
+       echo("<br /><img class=\"book_image_small\" src=\"./img/default-book.png\" alt=\"".$row['bookname']."\" /><br />");
       else
-        echo("<br /><img src=\"".$row['ind_pic']."\" alt=\"".$row['bookname']."\" /><br />");
+        echo("<br /><img class=\"book_image_small\" src=\"".$row['ind_pic']."\" alt=\"".$row['bookname']."\" /><br />");
       echo("</a>");
       echo("<font color=RED >Edition No.: </font>".$row['edition']."<br />");
       echo("<font color=GREEN >Author(s) Name: </font>".$row['authorsname']);

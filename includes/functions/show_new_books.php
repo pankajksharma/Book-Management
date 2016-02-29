@@ -6,7 +6,7 @@
   $result=mysqli_query($con,$sql);
   $book_ids=array();
   while($row=mysqli_fetch_array($result))
-    $book_ids=$row['book_id'];
+    $book_ids[]=$row['book_id'];
   if (count($book_ids)>0){
   echo("<table>");
   $count=1;

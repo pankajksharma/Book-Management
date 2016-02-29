@@ -13,10 +13,10 @@
      echo("<center>");
      echo("<h2><font color=RED>Book Name: </font>".$row['bookname']."</h2>\n");
      if($row['ind_pic']==NULL)
-      echo("<img src=\"./img/default-book-big.png\" alt=\"".$row['bookname']."\" />");
+      echo("<img class=\"book_image\" src=\"./img/default-book-big.png\" alt=\"".$row['bookname']."\" />");
       else
       {  
-      	echo("<img src=\"".$row['ind_pic']."\" alt=\"".$row['bookname']."\" />");
+      	echo("<img class=\"book_image\" src=\"".$row['ind_pic']."\" alt=\"".$row['bookname']."\" />");
       }
      echo("<h3><font color=RED>Author(s) Name: </font>".$row['authorsname']."</h3>\n");
      echo("<h3><font color=RED>Edition Number: </font><font color=GREEN>".$row['edition']."</font></h3>\n");
@@ -40,7 +40,7 @@
      else
      echo("INR. ".$row['price']." /- </font></h3>\n");
      echo("<h3><font color=RED>Submitted by: </font><a href=\"profile.php?user=".$row['username']."\"><font color=BLUE>".$row['username']."</font></a></h3>\n");
-    if($_SESSION['loggedIn'])
+    if(isset($_SESSION['loggedIn']))
        {  //checking sold or not sold book
           $sql123 = "SELECT `sold` FROM `book_invoice` WHERE `bookid`=$bid;";
           $result1234=mysqli_query($con,$sql123);

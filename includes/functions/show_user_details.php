@@ -57,7 +57,7 @@
         {
             $book_ids=array();
             while($row2=mysqli_fetch_array($result2))
-                $book_ids=$row2['book_id'];
+                $book_ids[]=$row2['book_id'];
             display_books($book_ids);
         }
       }
