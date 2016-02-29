@@ -7,7 +7,7 @@ function add_review($bid)
 {
 echo("<center><font color=RED>Add a review</font></center>");
 echo("<form action=\"book-review.php?check\" method=POST class=\"register\">");
-if(!$_SESSION['loggedIn'])
+if(!isset($_SESSION['loggedIn']))
   {
 ?>
   Your Name:<input type="text" name="name" id="sender_name" size="30" /> <br />
