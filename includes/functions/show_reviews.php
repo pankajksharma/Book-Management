@@ -5,9 +5,8 @@
     
     function show_reviews($bid)
       {
-        require('./includes/incl_user.php');
         $sql="select * from book_reviews where book_id=$bid order by review_id desc";
-        $result=mysqli_query($con,$sql);
+        $result=mysqli_query($GLOBALS['con'],$sql);
         if(!$result)
         {
 
@@ -15,7 +14,7 @@
         else
         {
            $sql1="select bookname from book_books where book_id=$bid";  //To select Book Name
-           $result1=mysqli_query($con,$sql1);
+           $result1=mysqli_query($GLOBALS['con'],$sql1);
            if(!$result1)
            echo("<h3><font color=RED>Argument you sumbitted is wrong..Unable to select Book..</font></h3>");
            else
@@ -46,13 +45,15 @@
         }
        }
        
+    if (!isset($_REQUEST['bid'])) exit(0);
+    $bid=$_REQUEST['bid'];
+    
     if(isset($_GET['check']))
     {
       $name=$_POST['name'];
       $email_id=$_POST['email_id'];
       $review=$_POST['message'];
       $flag=$_POST['flag'];
-      $bid=$_POST['bid'];
       if(($name=='')||($email_id=='')||($review==''))
       {
           echo("It seems you have submitted some insuffiecient Data..Please try again..<br />");
@@ -78,7 +79,6 @@
     
     else
     {
-      $bid=$_GET['bid'];
       show_reviews($bid);
     }
 ?>

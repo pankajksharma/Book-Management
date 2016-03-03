@@ -21,7 +21,7 @@
                  if($row['flag']==0)
                   echo($row['username']);
                  else
-                  echo("<a href=\"profile.php?user=".$row['username']."\">".$row['username']."</a>");
+                  echo("<a href=\"?username=".$row['username']."\">".$row['username']."</a>");
                   echo("</span>");
                   echo("</div>");
                   echo("<div class=\"review_post\">");

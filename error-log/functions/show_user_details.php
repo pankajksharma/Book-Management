@@ -1,4 +1,5 @@
 <?php
+    require_once('./functions/display_book.php');
 
  function display_books($book_ids)
       {
@@ -23,9 +24,16 @@
         echo("<center><b>No such Books Found..Probably No Books are submitted by User recently..</b></center>");
       }
       
-    require('./functions/display_book.php');
-    $sql1="select * from book_users where username='$username'";
-    $sql2="select book_id from book_books where username='$username' order by sell_date desc limit 0,9";
+  if(!isset($_SESSION['loggedIn']))
+  {
+    echo("<center>You are Not authorised to see the User Details..<br />Please login to continue...</center>");
+    require_once('../includes/forms/login_form.php');
+    show_login_form();
+  }
+  else
+    {
+    $sql1="select * from book_users where username='$user'";
+    $sql2="select book_id from book_books where username='$user' order by sell_date desc limit 0,9";
     $result1=mysqli_query($con,$sql1);
     $result2=mysqli_query($con,$sql2);
     if(!$result1)
@@ -39,9 +47,9 @@
         if($row1['college']!=NULL)
         echo("<h3><font color=RED>College/School Name: </font>".$row1['college']."</h3>\n");
         echo("<h3><font color=RED>Joining Details: </font>".$row1['joined_on']."</h3>\n");
-
-
-        echo("<center><h3><U><font color=GREEN>Books Submitted by the User in Latest Past</font></U></h3></center>");
+        
+        
+        echo("<h3><U><font color=GREEN>Books Submitted by the User in Latest Past</font></U></h3></center>");
         if(!$result2)
           {}
         else
@@ -52,4 +60,5 @@
             display_books($book_ids);
         }
       }
+    }
 ?>

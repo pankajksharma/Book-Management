@@ -8,7 +8,8 @@
           <?php
             if($message=="search_books")
             {
-              require_once('./functions/search_book.php');
+              require_once('./functions/display_book.php');
+              require_once('../includes/functions/search_books.php');              
             }
             else if($message=="sure_to_delete")
             {
@@ -25,6 +26,8 @@
             }
             else if($message=="show_user_details")
               require('./functions/show_user_details.php');
+            else if($message=="show_enlarged_book")
+              require('./functions/show_book_details.php');
             else
               echo("<img src=\"../img/welcome.jpg\" />");
           ?>

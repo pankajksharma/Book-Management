@@ -35,7 +35,7 @@
             while($row=mysqli_fetch_array($result))
               $book_ids[]=$row['book_id'];
             if (count($book_ids)>0)
-              display_book($book_ids[0]);
+              display_book($book_ids[0],0);
 				  ?>
 				</div>
 			</div>

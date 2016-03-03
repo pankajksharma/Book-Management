@@ -1,5 +1,5 @@
-<?php
-  require('./includes/incl_user.php');
+`<?php
+  require_once(WEB_ROOT.'/includes/incl_user.php');
   
       function display_books($book_ids)
       {
@@ -31,9 +31,8 @@
       function search_by_name($key)
       {
           $count=0;
-          require('./includes/incl_user.php');
           $sql="select book_id from book_books where bookname like '%$key%' order by book_id desc";
-          $result=mysqli_query($con,$sql);
+          $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
@@ -47,9 +46,8 @@
       function search_by_author($key)
       {
           $count=0;
-          require('./includes/incl_user.php');
           $sql="select book_id from book_books where authorsname like '%$key%'order by book_id desc";
-          $result=mysqli_query($con,$sql);
+          $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
@@ -63,9 +61,8 @@
       function search_by_subject($key)
       {
           $count=0;
-          require('./includes/incl_user.php');
           $sql="select book_id from book_books where subject like '%$key%' order by book_id desc";
-          $result=mysqli_query($con,$sql);
+          $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
@@ -79,9 +76,8 @@
       function serach_by_user($key)
       {
           $count=0;
-          require('./includes/incl_user.php');
           $sql="select book_id from book_books where username like '%$key%' order by book_id desc";
-          $result=mysqli_query($con,$sql);
+          $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
@@ -95,9 +91,8 @@
       function serach_by_categoy($key)
       {
           $count=0;
-          require('./includes/incl_user.php');
           $sql="select book_id from book_books where type_id=$key order by book_id desc";
-          $result=mysqli_query($con,$sql);
+          $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
@@ -111,7 +106,6 @@
       function serach_by_range($key)
       {
           $count=0;
-          require('./includes/incl_user.php');
           switch($key)
           {
              case(0):
@@ -146,7 +140,7 @@
              break;
           }
           $sql="select book_id from book_books where price>=$min and price<=$max order by book_id desc";
-          $result=mysqli_query($con,$sql);
+          $result=mysqli_query($GLOBALS['con'],$sql);
           $book_ids=array();
           while($row=mysqli_fetch_array($result))
           {
