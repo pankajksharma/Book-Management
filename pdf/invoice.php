@@ -19,15 +19,16 @@ error_reporting(E_ALL);
 set_time_limit(1800);
 session_start();
 $abcd=$_SESSION['user'];
-include 'class.ezpdf.php';
+include 'Cezpdf.php';
 
 // define a clas extension to allow the use of a callback to get the table of contents, and to put the dots in the toc
 class Creport extends Cezpdf {
 
-var $reportContents = array();
+public $reportContents = array();
 
 function Creport($p,$o){
-  $this->Cezpdf($p,$o);
+  parent::__construct($p,$o);
+  $this->allowedTags = $this->allowedTags.'|rf:?.*|dots:?\d+';
 }
 
 function rf($info){
