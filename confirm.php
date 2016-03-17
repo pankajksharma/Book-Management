@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if (!isset($_POST['bid'])) exit(0);
+  if (!isset($_GET['bid'])) exit(0);
   if(isset($_POST['confirm-sold']))
   {
       $bid=$_POST['bid'];

@@ -24,7 +24,7 @@
      $tid=$row['type_id'];
      $sql2="select book_type from book_types where type_id=$tid";
      $result2=mysqli_query($con,$sql2);
-     if(!result2)
+     if(!$result2)
       echo("Unknown</h2>\n");
     else
       {
@@ -41,7 +41,7 @@
      echo("INR. ".$row['price']." /- </font></h3>\n");
      echo("<h3><font color=RED>Submitted by: </font><a href=\"profile.php?user=".$row['username']."\"><font color=BLUE>".$row['username']."</font></a></h3>\n");
      echo('<form action="" method=POST>');
-     echo('<input type="checkbox" name="confirm-sold" vlaue="confirm" />');
+     echo('<input type="checkbox" name="confirm-sold" value="confirm" />');
      echo('I confirm that I need this book/want to purchse this Book');
      echo('<input type="hidden" name="bid" value="'.$bid.'" />');
      echo('<input type="image" src="./img/button_confirm.png" value="submit" />');

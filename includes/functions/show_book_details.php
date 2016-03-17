@@ -42,11 +42,11 @@
      echo("<h3><font color=RED>Submitted by: </font><a href=\"profile.php?user=".$row['username']."\"><font color=BLUE>".$row['username']."</font></a></h3>\n");
     if(isset($_SESSION['loggedIn']))
        {  //checking sold or not sold book
-          $sql123 = "SELECT `sold` FROM `book_invoice` WHERE `bookid`=$bid;";
+          $sql123 = "SELECT `sold` FROM `book_invoice` WHERE `book_id`=$bid;";
           $result1234=mysqli_query($con,$sql123);
 	  if ($result1234){
              $row1=mysqli_fetch_array($result1234);
-             if($row1['sold']!=sold)
+             if($row1['sold']!='sold')
              {
                    echo "<a href=\"confirm.php?bid=".$bid."\"><img src=\"./img/get-it-now.png\" /></a><br />";
              }

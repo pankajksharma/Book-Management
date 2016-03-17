@@ -12,7 +12,7 @@
   $bid=$_REQUEST['bid'];
   $_SESSION['bookid']=$bid;
   echo "Please have a look on your Peronnel details, if there is any" ;
-  echo " mistake, do <a href='http://books.engineerinme.com/com-profile.php'>change them</a>\n<br />";
+  echo " mistake, do <a href=\"./com-profile.php\">change them</a>\n<br />";
   $user=$_SESSION['user'];
   $sql1="SELECT * FROM `book_users` WHERE username='$user' ;";
   $result1=mysqli_query($con,$sql1);
@@ -57,7 +57,7 @@
      $user=$_SESSION['user'];
    
   //code to insert all abt the buyer and seller in db
-   $sql123 = "INSERT INTO  book_invoice (`invoice no` ,`book name` ,`bookid` ,`seller name` ,`buyersname` ,`sold`)VALUES ('',  ' $bookname',  '$bid',  ' $seller',  '$user', 'sold')";
+   $sql123 = "INSERT INTO  book_invoice (`invoice_id` ,`bookname` ,`book_id` ,`sellername` ,`buyername` ,`sold`)VALUES ('',  ' $bookname',  '$bid',  ' $seller',  '$user', 'sold')";
    $result1234=mysqli_query($con,$sql123);
    if (!$result1234)
    echo "unsuccessful try again";

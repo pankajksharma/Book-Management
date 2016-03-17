@@ -34,7 +34,7 @@
       }
       echo "</font>";*/
    }
-      $sql123 = "SELECT `sold` FROM `book_invoice` WHERE `bookid`=$bid;";
+      $sql123 = "SELECT `sold` FROM `book_invoice` WHERE `book_id`=$bid;";
    $result1234=mysqli_query($GLOBALS['con'],$sql123);
    if ($result1234){
    $row1=mysqli_fetch_array($result1234);
