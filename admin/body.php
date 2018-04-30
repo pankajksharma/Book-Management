@@ -56,22 +56,25 @@
 	<div class="content_re">
 		<div class="content_left">
       <?php
-        require_once('./left_sidebar.php');      //left Sidebar
+        require_once('./body_parts/left_sidebar.php');      //left Sidebar
       ?>
 		</div>
 		<div class="content_center">
       <?php
-        require('./main_content.php');     //main content
+        require('./body_parts/main_content.php');     //main content
       ?>
 		</div>
 		<div class="content_right">
       <?php
-    		require_once('./right_sidebar.php');      //right Sidebar
+    		require_once('./body_parts/right_sidebar.php');      //right Sidebar
     	?>
     </div>
 	</div>
+	<div class="clear"></div>
 	<div class="footer">
-		Hello world explaination
+	<?php
+    		require_once('../includes/body_parts/footer.php');      //right Sidebar
+    	?>
 	</div>
 </body>
 </html>

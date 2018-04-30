@@ -31,9 +31,11 @@
             require_once('./functions/display_book.php');
             $sql="select book_id from book_books order by book_id desc";
             $result=mysqli_query($con,$sql);
+            $book_ids=array();
             while($row=mysqli_fetch_array($result))
               $book_ids[]=$row['book_id'];
-            display_book($book_ids[0]);
+            if (count($book_ids)>0)
+              display_book($book_ids[0],0);
 				  ?>
 				</div>
 			</div>

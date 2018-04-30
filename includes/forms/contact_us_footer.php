@@ -32,7 +32,7 @@ function show_form_footer()
 ?>
 <form action="contact-us.php?check" method=POST>
 <?php
-  if(!$_SESSION['loggedIn'])
+  if(!isset($_SESSION['loggedIn']))
   {
 ?>
   <font color="white" >Your Name:&nbsp<input type="text" name="name" id="sender_name" size="20" /> <br />

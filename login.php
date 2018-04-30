@@ -1,7 +1,7 @@
 <?php
   session_start();
   require('./includes/incl_user.php');
-  if($_SESSION[loggedIn])
+  if(isset($_SESSION['loggedIn']))
     header('Location:index.php');
   if(isset($_GET['login']))
   {

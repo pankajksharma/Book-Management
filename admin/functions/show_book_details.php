@@ -1,6 +1,5 @@
 <?php
-  require_once('./includes/incl_user.php');
-  require_once('./includes/functions/add_review.php');
+  require_once('../includes/incl_user.php');
   $sql="select * from book_books where book_id=$bid";
   $result=mysqli_query($con,$sql);
   if(!$result)
@@ -13,10 +12,10 @@
      echo("<center>");
      echo("<h2><font color=RED>Book Name: </font>".$row['bookname']."</h2>\n");
      if($row['ind_pic']==NULL)
-      echo("<img class=\"book_image\" src=\"./img/default-book-big.png\" alt=\"".$row['bookname']."\" />");
+      echo("<img class=\"book_image\" src=\"../img/default-book-big.png\" alt=\"".$row['bookname']."\" />");
       else
       {  
-      	echo("<img class=\"book_image\" src=\"".$row['ind_pic']."\" alt=\"".$row['bookname']."\" />");
+      	echo("<img class=\"book_image\" src=\"../".$row['ind_pic']."\" alt=\"".$row['bookname']."\" />");
       }
      echo("<h3><font color=RED>Author(s) Name: </font>".$row['authorsname']."</h3>\n");
      echo("<h3><font color=RED>Edition Number: </font><font color=GREEN>".$row['edition']."</font></h3>\n");
@@ -39,14 +38,14 @@
      echo("Free Of Cost</font></h3>\n");
      else
      echo("INR. ".$row['price']." /- </font></h3>\n");
-     echo("<h3><font color=RED>Submitted by: </font><a href=\"profile.php?user=".$row['username']."\"><font color=BLUE>".$row['username']."</font></a></h3>\n");
+     echo("<h3><font color=RED>Submitted by: </font><a href=\"?username=".$row['username']."\"><font color=BLUE>".$row['username']."</font></a></h3>\n");
     if(isset($_SESSION['loggedIn']))
        {  //checking sold or not sold book
-          $sql123 = "SELECT `sold` FROM `book_invoice` WHERE `book_id`=$bid;";
+          $sql123 = "SELECT `sold` FROM `book_invoice` WHERE `bookid`=$bid;";
           $result1234=mysqli_query($con,$sql123);
 	  if ($result1234){
              $row1=mysqli_fetch_array($result1234);
-             if($row1['sold']!='sold')
+             if($row1['sold']!=sold)
              {
                    echo "<a href=\"confirm.php?bid=".$bid."\"><img src=\"./img/get-it-now.png\" /></a><br />";
              }
@@ -55,13 +54,19 @@
                   echo("<h2><font color=GREEN>Book availiblity: </font><font color=red>Sold </font></center><h2>");
             } 
 	  }
+	  ?>
+            <center><form action=?delete method=POST >
+                <input type="hidden" name="bid" value=<?php echo("\"".$bid."\""); ?> />
+                <input type="submit" name="delete" value="Delete Book" />
+            </form>
+            <form action=?show-reviews method=POST >
+                <input type="hidden" name="bid" value=<?php echo("\"".$bid."\""); ?> />
+                <input type="submit" name="Show_Reviews" value="Show Reviews" />
+            </form></center>
+          <?php
   	}
   	else
-  		echo "<a href=\"login.php?login\"><img src=\"./img/get-it-now.png\" /></a><br />";
-     echo("</center>");
-     add_review($bid);
-     echo'<center>';
-     echo("<a href=\"book-review.php?bid=".$bid."\"><img src=\"./img/view-review.png\" /></a><br />");
+  		echo "<a href=\"login.php?login\"><img src=\"../img/get-it-now.png\" /></a><br />";
      echo'</center>';
      }
      else

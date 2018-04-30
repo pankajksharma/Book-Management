@@ -1,17 +1,16 @@
 <?php
-      require('./includes/incl_user.php');
-      if($meta=="enlargebook")
+      require(__DIR__.'/incl_user.php');
+      if(isset($meta)=="enlargebook")
       {
-        require('./includes/incl_user.php');
         $sql1="select * from book_books where book_id=$bid";
         $result=mysqli_query($con,$sql1);
-        if(!result)
+        if(!$result)
           get_common_meta();
         else
           {
           $row=mysqli_fetch_array($result);
          echo("<meta name=\"Subject\" content=\"Buy ".$row['bookname']." by ".$row['authorsname']." at very low Prices\" />");
-         echo("<meta name=\"Description\" content=\"Buy ".$row['book']." book by ".$row['authorsname'].".");
+         echo("<meta name=\"Description\" content=\"Buy ".$row['bookname']." book by ".$row['authorsname'].".");
          if(!$row['price'])
          echo("Get this Book for free.");
          echo("The book is available at a low price of INR ".$row['price'].".");
@@ -23,8 +22,6 @@
       get_common_meta();
 function get_common_meta()
   {
-  require('./includes/incl_user.php');
-
 ?>
      <meta name="Title" content="Engineer In Me Book Store" />	
      <meta name="Keywords" content="Engineer In Me Book Store, Donate Books, Buy old books, sell old books, buy sell used books, donate not in use old books, get books for free, online book store" />

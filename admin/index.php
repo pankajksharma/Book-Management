@@ -9,9 +9,26 @@
     {
       $head_message="Result for Your Search Query";
       $message="search_books";
-     	require('./template.html.php');
+      if (!isset($_REQUEST['search_type'])) exit(0);
+      $search_id=$_REQUEST['search_type'];
+      if (isset($_REQUEST['keyword']))
+        $key=$_REQUEST['keyword'];
+      else
+        $key='';
+      if (isset($_GET['id']))
+        $id=$_GET['id'];
+      else
+        $id=1;
+      require('./template.html.php');
     }
-    
+    else if (isset($_GET['enlarge']))
+    {
+        $bid=$_GET['bid'];
+        $meta="enlargebook";
+        $head_message="Details for Selected Book:";
+        $message="show_enlarged_book";
+        require('./template.html.php');
+    }
     else if (isset($_GET['show-reviews']))
     {
       $bid=$_POST['bid'];
@@ -30,7 +47,7 @@
     
     else if(isset($_GET['username']))
     {
-    $username=$_GET['username'];
+    $user=$_GET['username'];
     $head_message="User deatails";
     $message="show_user_details";
     require('./template.html.php');

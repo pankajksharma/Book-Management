@@ -7,7 +7,7 @@
 				<div class="body">
           <?php
             if($message=="register_yourself")
-              require('./includes/register_yourself.php');
+              require('./includes/forms/register_yourself.php');
             else if($message=="add_book_form")
               require('./includes/forms/add-book.html.php');
             else if($message=="show_new_books")   
@@ -17,7 +17,10 @@
             else if($message=="show_user_details")
                require('./includes/functions/show_user_details.php');
             else if($message=="search_books")
+                {
+               require('./includes/functions/display_book.php');
                require('./includes/functions/search_books.php');
+                }
             else if($message=="contact_us")
                require('./includes/forms/contact_us.php');
             else if($message=="complete_profile")

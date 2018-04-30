@@ -1,8 +1,6 @@
 <?php
-   require('./includes/incl_user.php');
-   require_once('./includes/functions/display_book.php');
-   require_once('./includes/functions/search_books_func.php');
-   require_once('./includes/functions/display_page_nos.php');
+   require_once(WEB_ROOT.'/includes/functions/search_books_func.php');
+   require_once(WEB_ROOT.'/includes/functions/display_page_nos.php');
     if(($search_id==1)||($search_id=='Book Name'))
       $count=search_by_name($key);
     if(($search_id==2)||($search_id=='Author Name'))

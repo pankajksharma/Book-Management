@@ -194,11 +194,19 @@ img.banner_re{
 	}
 
 .sidebar_re td{
+	display:inline-block;
 	padding-bottom:20px;	
 	}
 .sidebar_re a{
 	color:#000;
 	}
+	
+.book_image{
+    max-width:90%;
+}
+.book_image_small{
+    max-width:100%;
+}
 
 form.register{
 	margin-top:0;
